@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function MovieBody() {
+export default function ShadowMovieCard() {
   return (
     <section className="relative cursor-pointer group z-10 px-10 pt-10 space-y-6 movie_info">
       <Countdown />

@@ -3,7 +3,7 @@ import {Link, useMatch, useResolvedPath} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import logo from "./Logo.png";
+import logo from '../../Images/dalle-filmaffinitylogo-removebg-preview.png';
 
 
 
