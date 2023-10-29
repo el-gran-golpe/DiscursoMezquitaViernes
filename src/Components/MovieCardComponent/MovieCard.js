@@ -1,70 +1,35 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
+import ShadowMovieCard from "./ShadowMovieCard";
 
-
-export function MovieCard({ movieId }) {
+export function MovieCard({ movieId, movieYear = 2023 }) {
   return (
-    <article className="flex flex-col bg-white shadow-md rounded-lg overflow-hidden mx-auto relative transform hover:-translate-y-2 transition ease-in-out duration-500">
-      {/* This div ensures a smooth gradient */}
-      <div className="overlay absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-gray-900 to-transparent"></div>
-      {/* Content from the CardContents component */}
-      <div
-        className="movie-card flex flex-col justify-center overflow-hidden rounded-xl relative shadow-lg text-white w-48 h-72 z-20"
-        data-movie-id={movieId}
+    <article className="group flex flex-col shadow-md rounded-lg overflow-hidden mx-auto relative transform hover:-translate-y-2 transition ease-in-out duration-500 w-48 h-72">
+      
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-10"
         style={{
           backgroundImage: `url("http://image.tmdb.org/t/p/w342/s1FhMAr91WL8D5DeHOcuBELtiHJ.jpg")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
-      >
+      ></div>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-80 z-20 transition duration-500"></div>
+
+      {/* Chip */}
+      <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white rounded-full px-3 py-1 z-40 opacity-100 group-hover:opacity-0 transition duration-500">
+        {movieYear}
       </div>
 
-      {/* <div className="z-30">
-        <PosterFooter />
-      </div> */}
+      {/* ShadowMovieCard */}
+      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 z-50 transition duration-500">
+        <ShadowMovieCard/>
+      </div>
+
+      {/* Content from the CardContents component */}
+      <div className="movie-card flex flex-col justify-center overflow-hidden rounded-xl relative shadow-lg text-white w-48 h-72 z-30" data-movie-id={movieId}>
+      </div> 
     </article>
   );
 }
-
-
-// MY COPY/PASTE:
-
-// Exports
-function PosterFooter() {
-  return (
-    <div className="flex justify-center relative pb-2 z-10">
-      <SetDownloadButton />
-    </div>
-  );
-}
-
-function SetDownloadButton() {
-  const reminderUrl = generateReminderUrl({
-    date: "20210915T010000Z",
-    text: "Dune - Movie Premiere",
-    location: "http://moviedates.info",
-    details: "This reminder was created through http://moviedates.info",
-  });
-
-  return (
-    <a
-      className="flex items-center py-1 px-2 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700"
-      href={reminderUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-       {/* Put a button to download and another one to see online XDD*/}
-      <FontAwesomeIcon icon={faCloudArrowDown} className="w-6 h-6" />
-      <div className="text-sm text-white ml-2">Download</div>
-    </a>
-  );
-}
-
-function generateReminderUrl({ date, text, location, details }) {
-  const encodedText = encodeURIComponent(text);
-  const encodedLocation = encodeURIComponent(location);
-  const encodedDetails = encodeURIComponent(details);
-  return `http://www.google.com/calendar/event?action=TEMPLATE&dates=${date}%2F${date}&text=${encodedText}&location=${encodedLocation}&details=${encodedDetails}`;
-}
-
