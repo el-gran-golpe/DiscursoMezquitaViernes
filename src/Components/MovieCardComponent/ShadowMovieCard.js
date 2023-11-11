@@ -4,7 +4,7 @@ import { faCloudArrowDown, faEye } from '@fortawesome/free-solid-svg-icons';
 
 export default function ShadowMovieCard() {
   return (
-    <section className="relative cursor-pointer group px-4 pt-4 space-y-4 movie_info flex flex-col items-center w-48 h-72">
+    <section className="relative cursor-pointer group px-4 pt-4 space-y-4 movie_info flex flex-col items-center w-full h-full">
       
       {/* SVG Trailer Button - Excluded from scaling */}
       <div className="poster__info align-self-end w-full space-y-2">
@@ -27,25 +27,25 @@ export default function ShadowMovieCard() {
               Trailer
             </div> 
         </a>
-
-        {/* Movie Title - Excluded from scaling */}
-        <h2 className="text-2xl font-bold text-white truncate">Movie Title Here</h2>
       </div>
 
+      {/* Movie Title - Excluded from scaling */}
+      <h2 className="text-2xl font-bold text-white truncate">Movie Title Here</h2>
+
       {/* Elements to be scaled */}
-      {/* <div className="scaling-container transform scale-90">
+      <div className="scaling-container transform scale-90">
         <div className="flex items-center space-x-4">
-          <span className="text-white">Release Year: 2023</span>
+
           <span className="text-white">Duration: 120min</span>
           <span className="text-white">Rating: PG-13</span>
         </div>
         <p className="text-white">
           This is a brief overview of the movie.
         </p>
-      </div> */}
+      </div> 
 
 <div className="flex flex-col justify-center space-y-2 relative pb-2 z-10">
-    <a
+    {/*<a
         className="flex items-center py-1 px-2 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700"
         href={generateReminderUrl({
             date: "20210915T010000Z",
@@ -55,10 +55,10 @@ export default function ShadowMovieCard() {
         })}
         target="_blank"
         rel="noopener noreferrer"
-    >
-        <FontAwesomeIcon icon={faCloudArrowDown} className="w-6 h-6" />
+    /> 
+         <FontAwesomeIcon icon={faCloudArrowDown} className="w-6 h-6" />
         <div className="text-sm text-white ml-2">Download</div>
-    </a>
+    </a> */}
 
     <a
         className="flex items-center py-1 px-2 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700"
