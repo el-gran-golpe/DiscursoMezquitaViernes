@@ -36,7 +36,7 @@ export default function Banner() {
     return (
         <>
         {/* Enhanced Hero Image */}
-        <div className="mb-6 mx-0 relative w-screen h-screen rounded">
+        <div className="mb-6 mx-0 relative w-full h-screen rounded">
             {/* Use CSS transition for fade effect */}
             <div className="absolute w-full h-full transition-opacity duration-1000 ease-in-out">
                     <img src={activeImage} alt="Banner" className="w-full h-full object-cover" style={{ opacity: activeDot === dots.indexOf(activeDot) ? 1 : 0 }} />

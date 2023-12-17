@@ -2,7 +2,7 @@ import ShadowMovieCard from "./ShadowMovieCard";
 
 export function MovieCard({ movieId, movieYear = 2023 }) {
   return (
-    <article className="group flex flex-col shadow-md rounded-lg overflow-hidden mx-auto relative transform hover:-translate-y-2 transition ease-in-out duration-500 w-48 h-72">
+    <article className="group flex flex-col shadow-md rounded-lg overflow-hidden mx-auto relative transform hover:-translate-y-2 transition ease-in-out duration-500 w-full h-full">
       
       {/* Background Image */}
       <div 
