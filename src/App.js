@@ -1,5 +1,5 @@
 import './App.css';
-import NavBar from './Components/NavBarComponent/NavBar';
+import Navbar from './Components/NavBarComponent/Navbar';
 import Pricing from './Pages/Pricing';
 import About from './Pages/About';
 import Home from './Pages/HomePage/Home';
@@ -8,7 +8,7 @@ import {Route, Routes} from "react-router-dom";
 export default function App(){
   return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="bg-gray-900 text-white">
       <Routes>
         <Route path="/" element={<Home />} />
