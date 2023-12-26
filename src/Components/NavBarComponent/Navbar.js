@@ -17,7 +17,7 @@ export default function Navbar(){
             <div className="flex justify-between items-center w-full">
 
                 {/* Film Affinity 2 title */}
-                <div className="flex-none px-4">
+                <div className="flex-none pl-6 pr-4">
                     <Link to="/" className="text-3xl font-bold hover:opacity-75 transition-opacity duration-300">
                         FilmAffinity 2
                     </Link>
@@ -35,9 +35,10 @@ export default function Navbar(){
                           </li>
                         ))}
                     </ul>
-                    <SearchBar />
+                    <div className="flex flex-grow items-center justify-end pl-5 pr-2">
+                        <SearchBar />
+                    </div>
                 </div>
-
             </div>
         </nav>
     );
