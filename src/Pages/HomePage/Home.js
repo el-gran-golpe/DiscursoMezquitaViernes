@@ -38,10 +38,6 @@ export default function Home() {
           ))}
         </div>
 
-
-
-
-
         {/* Upcoming releases in Spain */}
         <div className="flex items-center text-2xl font-bold text-white-600 mb-1 py-4">
           <span>Upcoming releases in Spain</span>
