@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faTv, faBolt, faShapes } from '@fortawesome/free-solid-svg-icons';
 import SearchBar from './SearchBar';
 
-// Menu items as an array
 const menuItems = [
   { path: "/movies", icon: faFilm, label: "Películas" },
   { path: "/series", icon: faTv, label: "Series" },
@@ -11,7 +10,26 @@ const menuItems = [
   { path: "/genres", icon: faShapes, label: "Géneros" },
 ];
 
-export default function Navbar(){
+function MenuItem({ label, path, icon }) {
+    return (
+        <li key={label}>
+            <Link to={path} className="flex items-center hover:opacity-75 transition-opacity duration-300">
+                <FontAwesomeIcon icon={icon} className="mr-2" />
+                {label}
+            </Link>
+        </li>
+    );
+}
+
+function MenuList({ items }) {
+    return (
+        <ul className="flex gap-x-4 ml-10">
+            {items.map(MenuItem)}
+        </ul>
+    );
+}
+
+export default function Navbar() {
     return (
         <nav className="sticky top-0 bg-gray-800 text-white py-1.5 z-10">
             <div className="flex justify-between items-center w-full">
@@ -23,18 +41,11 @@ export default function Navbar(){
                     </Link>
                 </div>
 
-                {/* Rest of titles */}
+                {/* Menu items and search bar */}
                 <div className="flex justify-center items-center flex-grow">
-                    <ul className="flex gap-x-4 ml-10">
-                        {menuItems.map(item => (
-                          <li key={item.label}>
-                            <Link to={item.path} className="flex items-center hover:opacity-75 transition-opacity duration-300">
-                                <FontAwesomeIcon icon={item.icon} className="mr-2" />
-                                {item.label}
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
+
+                    <MenuList items={menuItems} />
+
                     <div className="flex flex-grow items-center justify-end pl-5 pr-2">
                         <SearchBar />
                     </div>
