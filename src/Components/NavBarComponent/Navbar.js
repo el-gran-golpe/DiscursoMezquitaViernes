@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faTv, faBolt, faShapes } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faTv, faBolt, faShapes, faPlay } from '@fortawesome/free-solid-svg-icons';
 import SearchBar from './SearchBar';
+
 
 const menuItems = [
   { path: "/movies", icon: faFilm, label: "Películas" },
@@ -37,6 +38,7 @@ export default function Navbar() {
                 {/* Film Affinity 2 title */}
                 <div className="flex-none pl-6 pr-4">
                     <Link to="/" className="text-3xl font-bold hover:opacity-75 transition-opacity duration-300">
+                        <FontAwesomeIcon icon={faPlay} className="mr-3"/>
                         FilmAffinity 2
                     </Link>
                 </div>
