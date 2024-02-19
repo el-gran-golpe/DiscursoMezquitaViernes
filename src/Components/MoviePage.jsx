@@ -5,6 +5,49 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import FakeLinkTable from './FakeLinkTable';
 
 
+const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const fraction = rating - fullStars;
+
+    return (
+        <>
+            {[...Array(fullStars)].map((_, index) => (
+                <FontAwesomeIcon 
+                    key={`star-${index}`} 
+                    icon={faStar} 
+                    className="text-yellow-400" 
+                    style={{ stroke: 'black', strokeWidth: '10px', fontSize: '24px' }}
+                />
+            ))}
+            {fraction > 0 && 
+                <div style={{ position: 'relative' }}>
+                    <FontAwesomeIcon 
+                        icon={faStar} 
+                        className="text-gray-300" 
+                        style={{ stroke: 'black', strokeWidth: '10px', fontSize: '24px' }}
+                    />
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: `${fraction * 100}%`, overflow: 'hidden' }}>
+                        <FontAwesomeIcon 
+                            icon={faStar} 
+                            className="text-yellow-400" 
+                            style={{ stroke: 'black', strokeWidth: '10px', fontSize: '24px' }}
+                        />
+                    </div>
+                </div>
+            }
+            {[...Array(5 - Math.ceil(rating))].map((_, index) => (
+                <FontAwesomeIcon 
+                    key={`star-${fullStars + index + (fraction > 0 ? 1 : 0)}`} 
+                    icon={faStar} 
+                    className="text-gray-300" 
+                    style={{ stroke: 'black', strokeWidth: '10px', fontSize: '24px' }}
+                />
+            ))}
+        </>
+    );
+}
+
+
 export default function MoviePage() {
     return (
         <>
@@ -68,19 +111,35 @@ export default function MoviePage() {
                             </div>
                         </div>
 
+
                     {/* Right column content */}
                     <div className="w-2/3 px-5">
-                        <h1 className="text-5xl text-gray-900 dark:text-white">
-                            Oppenheimer <span className="text-3xl">(2023)</span>
-                        </h1>
-                        <h2 className="text-2xl text-gray-300 mt-10 ml-4">Synopsis</h2>
-                        <p className="text-lg text-gray-400 mt-3 ml-4">
+                        <div className="mb-6">
+                            <h1 className="text-5xl text-gray-900 dark:text-white">
+                                Oppenheimer <span className="text-3xl">(2023)</span>
+                            </h1>
+                        </div>
+                        {/* Movie details */}
+                        <div className="items-center mt-4 text-sm">
+                            <span className="text-lg font-medium text-gray-400">Sub | Dub</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+                                <div style={{ border: '1px solid white', padding: '5px', borderRadius: '5px', display: 'inline-flex', margin: '10px 0' }}>
+                                    {renderStars(4.6)}
+                                    <div style={{ height: '24px', width: '1px', backgroundColor: 'white', margin: '0 10px' }}></div>
+                                    <span className="mx-1" style={{ fontSize: '24px' }}>Puntuación media: 4.6</span>
+                                    <div style={{ height: '24px', width: '1px', backgroundColor: 'white', margin: '0 10px' }}></div>
+                                    <span style={{ fontSize: '24px' }}>(16K)</span>
+                                    <div style={{ height: '24px', width: '1px', backgroundColor: 'white', margin: '0 10px' }}></div>
+                                    <span style={{ fontSize: '24px' }}>71 Reseñas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 className="text-2xl text-gray-300 mt-10">Synopsis</h2>
+                        <p className="text-lg text-gray-400 mt-3">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc nec condimentum lacinia, lorem mauris cursus lorem, vitae aliquet dui dui non urna. Integer bibendum, ipsum in condimentum facilisis, arcu risus rutrum ipsum, a pharetra justo turpis ac nulla.
                         </p>
 
                        <FakeLinkTable />
-
-
                     </div>
                 </div>  
             </main>

@@ -24,7 +24,7 @@ const FakeLinkTable = () => {
 
     return (
         <div className="bg-gray-800 p-4 mt-8 rounded-lg">
-            <div className="text-white text-lg mb-2">Where to watch</div>
+            <div className="text-gray-300 text-2xl mb-2">Where to watch</div>
             <div className="bg-gray-700 p-2 rounded-lg overflow-hidden">
                 <div className="grid grid-cols-6 text-center text-xs font-bold text-white py-2 border-b border-gray-600">
                     <div></div> {/* Placeholder for the dropdown button column */}
@@ -41,7 +41,7 @@ const FakeLinkTable = () => {
                                 icon={faCaretDown}
                                 onClick={() => toggleRow(index)}
                                 className={`cursor-pointer text-gray-300 hover:text-white transition ease-in-out duration-150 ${expandedRow === index ? 'transform rotate-180' : ''}`}
-                                style={{ borderRadius: '50%', border: '2px solid white', padding: '2px' }}
+                                style={{ borderRadius: '50%', border: '2px solid white', padding: '3px', width: '20px', height: '20px' }}
                             />
                         </div>
                         <div className="col-span-5 flex justify-between items-center px-4">
@@ -65,3 +65,7 @@ const FakeLinkTable = () => {
 };
 
 export default FakeLinkTable;
+
+
+
+                     
